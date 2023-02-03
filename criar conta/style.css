@@ -1,0 +1,71 @@
+* {
+  background-color: aqua;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin-top: 20px;
+  margin-bottom: 25vh;
+  
+  margin-left: 20vh;
+  background-color: rgb(18, 79, 133);
+  width: 500px;
+  border: 0;
+  border-radius: 10px;
+}
+
+.username {
+   border-bottom: 10px;
+  margin-left: 28%;
+  color: aliceblue;
+  
+  padding: 20px;
+  display: block;
+  width: 200px;
+  align-items: center;
+  align-content: center;
+  background-color: rgb(32, 83, 128);
+  box-shadow: 2px 1px 4px 0px black;
+}
+
+.mail {
+  color: aliceblue;
+  display: block;
+  background-color: rgba(240, 248, 255, 0.224);
+  padding: 1px;
+  width: 11rem;
+  border-radius: 15px;
+}
+.pass {
+  color: aliceblue;
+  display: block;
+  border-radius: 15px;
+  padding: 1px;
+  width: 11rem;
+  background-color: rgba(240, 248, 255, 0.224);
+}
+
+.mail,
+.pass:hover {
+  color: black;
+
+  transform-style: preserve-3d;
+}
+
+.btn {
+  width: 2%;
+  margin-top: 2vh;
+  margin-left: 40%;
+}
+
+.btt {
+  text-decoration: underline;
+
+ 
+}
+
+.btt:hover {
+  color: white;
+  background-color: aliceblue;
+}

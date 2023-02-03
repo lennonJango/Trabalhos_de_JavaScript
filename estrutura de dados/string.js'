@@ -1,0 +1,16 @@
+"use strict";
+
+
+const email = "lennonjango@gmail.com";
+
+const emailLogin = " LennonJango@Gmail.com  \n";
+
+const normalEmail = emailLogin.toLowerCase().trim();
+
+email===normalEmail ?console.log("verdade") : console.log("falso")
+
+
+const a = "ABFDE"
+
+a.replace("F","C")
+console.log(a.replace("F","C"));

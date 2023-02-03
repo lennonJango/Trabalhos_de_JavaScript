@@ -1,0 +1,49 @@
+"Strict mode";
+
+  function calcTips(bill){
+
+      return bill<50 && bill>300 ? bill*0.15 : bill*0.2;
+  }
+
+   const bill = [555,145,25]
+     const tips = [calcTips(bill[0]), calcTips(bill[1]), calcTips(bill[2])]
+      console.log(bill,tips)
+
+      let payment = [`O bill pagou ${bill[0]} na primeira conta e deu uma gorjeta de ${tips[0]}`, `O bill pagou ${bill[1]} na segunda conta e deu uma gorjeta de ${tips[1]}`, `O bill pagou ${bill[2]} na terceira conta e deu uma gorjeta de ${tips[2]}`]
+
+       console.log(payment)
+
+
+
+
+
+
+
+
+
+
+     function equipes ( a,b,c){
+
+         return (a+b+c)/3
+     }
+
+       const united1 = equipes(120,99,100)
+       const city1 = equipes(122,99,10)
+        
+       function calcAvg(united,city){
+
+              if(united>city){
+                 console.log("united win's")
+              }else if(city>united){
+                 console.log("City win's")
+              }else if(united===city){
+
+                 console.log("No ones win's")
+              }
+       }
+ 
+        const win = (calcAvg(united1,city1))
+
+
+
+

@@ -1,0 +1,66 @@
+"use strict ";
+
+// const age1 = [5, 2, 4, 1, 15, 8, 3];
+// const age2 = [16, 6, 10, 5, 6, 1, 4];
+
+// const calcAge = function (ConvertAge) {
+//   const humanAge = ConvertAge.map((idade) =>
+//     idade <= 2 ? 2 * idade : 16 + idade * 4
+//   );
+
+//   console.log(humanAge);
+
+//   const ageLess18 = humanAge.filter((idade) => idade >= 18);
+
+//   console.log(ageLess18);
+
+//   const calcAverage =
+//     ageLess18.reduce((acc, value) => acc + value, 0) / ageLess18.length;
+
+//   console.log(calcAverage);
+// };
+
+// calcAge(age1);
+
+// const numero = [50, 20, [200, 82], 13, 9, [10, 11, 2], 8, 11];
+
+// console.log(numero.flat(2));
+
+// const ordemCrescente = numero.flat(2).sort((nCorrente, proximoNumero) => {
+//   if (nCorrente < proximoNumero) return -1;
+//   if (proximoNumero < nCorrente) return 1;
+// });
+// ordemCrescente.push(300);
+// ordemCrescente.push(1);
+// console.log(ordemCrescente);
+
+// const arr = Array.from({ length: 10 }, (_, i) => 1 + i++);
+// console.log(arr);
+
+//
+const timer = function () {
+  let time = 60;
+  const s = time / 60;
+  const m = time % 60;
+  // Repetir o cronometro
+  setInterval(function () {
+    console.log(`${s}:${m}`);
+    time--;
+  }, 1000);
+};
+timer();
+clearInterval(timer);
+
+//how create a timer in js?
+
+
+
+
+
+
+
+
+
+
+
+

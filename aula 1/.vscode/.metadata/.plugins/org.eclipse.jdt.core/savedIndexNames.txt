@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\Users\Lennon jango\Desktop\script\aula 1\.vscode\.metadata\.plugins\org.eclipse.jdt.core
+4274798746.index
+1865797976.index

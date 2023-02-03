@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <link rel="stylesheet" href="jogo.css" />
+  <body>
+    <header>
+      <h1 class="txt">Guess my Number</h1>
+      <p>Escolha um numero entre 0 a 20</p>
+      <button type="button" class="btn">Try again</button>
+      <div class="number">?</div>
+    </header>
+
+    <main>
+      <section class="left">
+        <input
+          class="guess"
+          type="number"
+          name="contador "
+          id="contador"
+          aria-label="search "
+          max="20"
+          min="0"
+          placeholder="0"
+        />
+        <button type="button" class="btn check">Check!</button>
+      </section>
+
+      <section class="right">
+        <p class="messagem">Tente adivinhar</p>
+        <p class="score">💯 Score: <span class="spanScore"> 20</span></p>
+        <p class="highScore">
+          🥇Tua pontuação maxima: <span class="HighScoreTotal"> 0</span>
+        </p>
+      </section>
+    </main>
+
+    <script src="jogo.js"></script>
+  </body>
+</html>

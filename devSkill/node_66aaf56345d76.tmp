@@ -1,0 +1,11 @@
+"use-strict";
+
+let u = 10
+ for(let i = 10;i<=u ; u++){
+      console.log(`exercício ${u}`);
+
+      
+    
+
+ }
+

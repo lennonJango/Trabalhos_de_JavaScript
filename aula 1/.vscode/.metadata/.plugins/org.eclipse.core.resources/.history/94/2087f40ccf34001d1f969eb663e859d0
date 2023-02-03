@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class Exercicios {
+
+	public static void main(String[] args) {
+		
+		Scanner l = new Scanner(System.in);
+		 System.out.print("Digite o valor de a");
+		  double a = l.nextDouble();
+		  System.out.print("Digite o valor de b");
+		   double b = l.nextDouble();
+		    double c = a+b;
+		    System.out.print(c);
+		  
+
+	}
+
+}

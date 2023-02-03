@@ -1,0 +1,15 @@
+
+
+*{
+    padding: 0;
+    margin: 0;
+
+}
+
+.button{
+    color: black;
+    padding: 20px;
+    background-color: aqua;
+    width: 20%;
+    
+}
