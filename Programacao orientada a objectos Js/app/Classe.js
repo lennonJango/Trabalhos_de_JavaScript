@@ -100,16 +100,18 @@ class App {
     const validarInputs = (...inputs) =>
       inputs.every((e) => Number.isFinite(e));
 
-    const conditionInput = (...inputs) =>
-      inputs.every((e) => Number.isFinite(e) > 0);
+    const conditionInput = (...input) =>
+      input.every((e) => Number.isFinite(e) > 0);
     //Se a atividade for correr , criar Object running
     if (type === "running") {
-      const cadence = inputCadence.value;
+      const cadence = +inputCadence.value;
       if (
         !validarInputs(duration, distance, cadence) ||
         !conditionInput(duration, distance, cadence)
       ) {
-        return alert("Os dados tem que ser um numero e maior que zero");
+        return alert(
+          "Os dados tem que ser um numero e um numero maior que zero"
+        );
       }
 
       workOut = new Running([lat, lng], distance, duration, cadence);
@@ -117,7 +119,7 @@ class App {
 
     // Se a atividade for andar de bicicleta , criar Object cycle
     if (type === "cycling") {
-      const elevationGain = inputElevation.value;
+      const elevationGain = +inputElevation.value;
       if (
         !validarInputs(duration, distance, elevationGain) ||
         !conditionInput(duration, distance)
@@ -139,10 +141,13 @@ class App {
         "";
 
     // Mostrado o marcador na tela
-
+    this._renderWorkoutMaker(workOut);
     console.log(this.#mapEvent);
-
-    L.marker([lat, lng])
+  }
+  _renderWorkout(workOut) {}
+  _renderWorkoutMaker(workOut) {
+    const type = inputType.value;
+    L.marker(workOut.coords)
       .addTo(this.#map)
       .bindPopup(
         L.popup({
@@ -150,15 +155,13 @@ class App {
           autoClose: false,
           minWidth: 100,
           closeOnClick: false,
-          className: "running-popup",
+          className: `${type}-popup`,
         })
       )
       .openPopup()
-      .setPopupContent("Sua corrida");
-    L.geoJson([lat, lng]).addTo(this.#map);
+      .setPopupContent(`${workOut.distance}`);
+    L.geoJson(workOut.coords).addTo(this.#map);
   }
-  _renderWorkout(workOut) {}
-  _renderWorkoutMaker() {}
   // Método que mostram a form da nossa app
   _showForm(mapE) {
     this.#mapEvent = mapE;

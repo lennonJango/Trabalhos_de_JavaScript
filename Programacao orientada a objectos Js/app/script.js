@@ -1,7 +1,6 @@
 "use strict";
 
-
-
+//Area para testes;
 
 //let map, mapEvent;
 
@@ -91,20 +90,20 @@
 // });
 
 //Limpar todos inputs
-const limparInputs = function () {
-  inputDistance.value =
-    inputCadence.value =
-    inputDuration.value =
-    inputElevation.value =
-      "";
-};
+// const limparInputs = function () {
+//   inputDistance.value =
+//     inputCadence.value =
+//     inputDuration.value =
+//     inputElevation.value =
+//       "";
+// };
 
 // //Mudar de corrida a pe para ciclismo
 // inputType.addEventListener("change", function (e) {
-  // e.preventDefault();
+// e.preventDefault();
 
-  // inputElevation.closest(".form__row").classList.toggle("form__row--hidden");
+// inputElevation.closest(".form__row").classList.toggle("form__row--hidden");
 
-  // inputCadence.closest(".form__row").classList.toggle("form__row--hidden");
- 
+// inputCadence.closest(".form__row").classList.toggle("form__row--hidden");
+
 // });
