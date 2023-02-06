@@ -9,21 +9,6 @@ const inputDuration = document.querySelector(".form__input--duration");
 const inputCadence = document.querySelector(".form__input--cadence");
 const inputElevation = document.querySelector(".form__input--elevation");
 
-const mouth = [
-  "Janeiro",
-  "Fevereiro",
-  "March",
-  "Abril",
-  "Maio",
-  "Junho",
-  "Julho",
-  "Agosto",
-  "Setembro",
-  "Outubro",
-  "Novembro",
-  "Dezembro",
-];
-
 // The class App contains the necessary elements what we gonna use for our application.
 class App {
   #mapEvent;
@@ -143,10 +128,63 @@ class App {
     // Mostrado o marcador na tela
     this._renderWorkoutMaker(workOut);
     console.log(this.#mapEvent);
+
+    // Colocado renderWorkout
+    this._renderWorkout(workOut);
   }
-  _renderWorkout(workOut) {}
+  _renderWorkout(workOut) {
+    let html = `<li class="workout workout--${workOut.type}" data-id= "${
+      workOut.id
+    }">
+    <h2 class="workout__title">Running on ${workOut.description}</h2>
+    <div class="workout__details">
+      <span class="workout__icon">${
+        workOut.type == "running" ? "🏃‍♂️" : " 🚴‍♀️"
+      }</span>
+      <span class="workout__value">${workOut.distance}</span>
+      <span class="workout__unit">km</span>
+    </div>
+    <div class="workout__details">
+      <span class="workout__icon">⏱</span>
+      <span class="workout__value">${workOut.duration}</span>
+      <span class="workout__unit">min</span>
+    </div> `;
+
+    if (workOut.type === "running") {
+      html += `
+      <div class="workout__details">
+      <span class="workout__icon">⚡️</span>
+      <span class="workout__value">${workOut.pace.toFixed(1)}</span>
+      <span class="workout__unit">min/km</span>
+     </div>
+     <div class="workout__details">
+      <span class="workout__icon">🦶🏼</span>
+      <span class="workout__value">${workOut.cadence}</span>
+      <span class="workout__unit">spm</span>
+    </div>
+  </li>`;
+      form.insertAdjacentHTML("afterend", html);
+    }
+
+    if (workOut.type == "cycling") {
+      html += `
+       <div class="workout__details">
+       <span class="workout__icon">⚡️</span>
+       <span class="workout__value">${workOut.speed.toFixed(1)}</span>
+       <span class="workout__unit">km/h</span>
+      </div>
+     <div class="workout__details">
+      <span class="workout__icon">⛰</span>
+      <span class="workout__value">${workOut.elevationGain}</span>
+      <span class="workout__unit">m</span>
+      </div>
+    </li> 
+      `;
+
+      form.insertAdjacentHTML("afterend", html);
+    }
+  }
   _renderWorkoutMaker(workOut) {
-    const type = inputType.value;
     L.marker(workOut.coords)
       .addTo(this.#map)
       .bindPopup(
@@ -155,7 +193,7 @@ class App {
           autoClose: false,
           minWidth: 100,
           closeOnClick: false,
-          className: `${type}-popup`,
+          className: `${workOut.type}-popup`,
         })
       )
       .openPopup()
@@ -190,17 +228,29 @@ class WorkOut {
     this.coords = coords; //Para as coordenadas nos iremos precisar de um array [latitude,longitude]
     this.duration = duration;
   }
+
+  _setDescription() {
+    // prettier-ignore
+    const mouth = [ "Janeiro", "Fevereiro", "March","Abril", "Maio", "Junho",  "Julho", "Agosto",  "Setembro","Outubro","Novembro", "Dezembro",];
+
+    this.description = `${this.type[0].toUpperCase()}${this.type.slice(
+      1
+    )} no dia ${this.date.getDay()} de ${mouth[this.date.getMonth()]} `;
+  }
 }
 
 class Running extends WorkOut {
   // nome;
   cadence;
+  type = "running";
 
   constructor(coords, distance, duration, cadence) {
     super(coords, distance, duration);
     this.cadence = cadence;
     // Os métodos mais importantes precisam de iniciar com o nosso constructor
     this.calcPace();
+    //Método da class workOut que da acesso a descrição da data do treino
+    this._setDescription();
   }
 
   // Calcula o tanto de minutos percorridos numa caminhada
@@ -213,12 +263,15 @@ class Running extends WorkOut {
 class Cycling extends WorkOut {
   //name;
   speed;
+  type = "cycling";
 
   constructor(coords, distance, duration, elevationGain) {
     super(coords, distance, duration);
     this.elevationGain = elevationGain;
     // Os métodos mais importantes precisam de iniciar com o nosso constructor
     this.calcSpeed();
+    //Método da class workOut que da acesso a descrição da data do treino
+    this._setDescription();
   }
 
   //Calcula o tanto de kmh percorridos
