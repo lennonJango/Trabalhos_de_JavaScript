@@ -20,12 +20,16 @@ body {
 }
 
 .container {
-  background-color:  #ece7e7;
+  background-color: #ece7e7;
   display: flex;
+  
   align-items: center;
 }
 
 .countries {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2px;
   display: flex;
   font-size: 2rem;
   opacity: 0;
